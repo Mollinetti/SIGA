@@ -1,0 +1,23 @@
+Dimension
+Population
+Minimization Problem Flag
+Constrained problem Flag
+Number of Restrictions
+Crossover Rate
+Tournament Size
+Mutation Rate
+Zeta coefficient
+Direction Change coefficient
+all D Rate
+all C Rate
+TFT Rate
+number of Games
+number of Rounds
+alpha value
+beta value
+Game Type
+lower bound
+upper bound
+function name
+Number of Generations
+
