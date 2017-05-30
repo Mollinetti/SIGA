@@ -232,35 +232,11 @@ class GA ():
                 #ga.tnPool[i].traverse()
                 #print(i, ':', ga.tnPool[i].fitness)
 
+            self.mutation()
+
             #print("\n\nUPDATES\n\n\n")
             self.update()
 
-
-            #print("\n\n")
-            #for i in range(0, self.param.popNum):
-                #ga.population[i].traverse()
-                 #print(self.population[i].fitness)
-
-            #print("\n\nMUTATION\n\n\n")
-            self.mutation()
-
-
-            #sort the population once again
-            #if the problem has constraints sort by violation and fitness 
-           # if self.param.hasConst == True:      
-            #    self.population = sorted(self.population, key = attrgetter('violations','totalFitness'))
-                #if the problem has no constraints sort by fitness 
-            #else:
-             #   self.population = sorted(self.population, key = lambda gene: gene.totalFitness)
-
-            #print("\n\nFINAL POPULATION\n\n\n")
-            #for i in range(0, self.param.popNum):
-                #g.append(Gene.Gene(lb, ub, 3))
-              #  ga.population[i].traverse()
-                #print(self.population[i].violations, self.population[i].fitness )
-
-            #print("\n\nBEST:\n\n", self.findBest().fitness)
-            #g.append(self.findBest())
 
         #print(g[len(g)-1].fitness, g[len(g)-1].genotype[0], g[len(g)-1].genotype[1])
             self.bests.append(copy.copy(self.findBest()))

@@ -9,7 +9,7 @@ class Gene():
     
     population = 0
         
-    def __init__(self, param = Parameters):
+    def __init__(self, param = Parameters, type =0):
         self.genotype = []
         self.fitness = float("inf")
         self.violations = float("inf")
@@ -18,9 +18,10 @@ class Gene():
         self.restrictions = []
         
         #generating optimization parameters
-        for i in range(0,param.dim):
-            self.genotype.append(random.uniform(param.lowBound[i], param.uppBound[i]))
-        
+        if type == 0:
+            for i in range(0,param.dim):
+                self.genotype.append(random.uniform(param.lowBound[i], param.uppBound[i]))
+            
         #generating strategy profile
         num = random.uniform(0,1)
         if num >= 0 and num < param.allDRate:

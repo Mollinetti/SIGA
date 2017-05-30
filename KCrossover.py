@@ -22,13 +22,14 @@ def getGeneResult(gene1, gene2, zeta):
 
 def analyseFlow(parent1, parent2, param= Parameters):
     dir = [0] * param.dim
-    
+
+
     for i in range(0,param.dim):
         if parent1[i] < parent2[i]:
             dir[i] = dir[i] + 1
         else:
             dir[i] = dir[i] - 1
-    
+
     return dir
 
 def Kcross(lowerBound, upperBound, dir, parent1=Gene, parent2=Gene,  param=Parameters):
@@ -45,7 +46,7 @@ def Kcross(lowerBound, upperBound, dir, parent1=Gene, parent2=Gene,  param=Param
         gene1 = offspring1[i]
         gene2 = offspring2[i]
 
-        if(random.uniform(0,1) <  param.getcRate()):
+        if(random.random() <  param.getcRate()):
                 
             result = getGeneResult(gene1, gene2, param.getZeta())
 
@@ -132,12 +133,14 @@ def Kcross(lowerBound, upperBound, dir, parent1=Gene, parent2=Gene,  param=Param
             resultoffspring1[i] = gene1
             resultoffspring2[i] = gene2
 
-    child1 = Gene.Gene(param)
+    child1 = Gene.Gene(param, type =1)
 
-    child2 = Gene.Gene(param)
+    child2 = Gene.Gene(param, type =1)
 
     child1.genotype = list(resultoffspring1)
     child2.genotype = list(resultoffspring2)
+    print("parent1: ", parent1.genotype, " parent2: ", parent2.genotype)
+    print("child1: ", child1.genotype, " child2: ", child2.genotype)
 
     return child1, child2
 
@@ -264,6 +267,7 @@ def KCrossover(pool, param= Parameters):
     #shuffle the indices list
     random.shuffle(ind)
 
+
     #loop over the pool in order to perform the crossovers (starting from individual 2, because individual 0 is te super individual)
     for i in range(0, int(len(pool)), 2):
 
@@ -272,6 +276,7 @@ def KCrossover(pool, param= Parameters):
         #print(pool[ind[i]].fitness,pool[ind[i+1]].fitness)
 
         dir = analyseFlow(pool[ind[i]].genotype,pool[ind[i+1]].genotype, param)
+
 
         if ind[i] == 0:
             childs.extend(KcrossSuperIndividual(param.lowBound, param.uppBound, dir, pool[ind[i]], pool[ind[i+1]], param))
