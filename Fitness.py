@@ -20,20 +20,20 @@ def GoldsteinPrice(x):
 
 
 def MWTCScalculateG1(x):
-    return float(1 - ((pow(x[1], 3) * x[2]) / (7178 * pow(x[0], 4))))
+    return float(1 - ((pow(x[1], 3) * x[2]) / (71785 * pow(x[0], 4))))
 
 
 
 def MWTCScalculateG2(x):
-    return float(((4 * x[1] * x[1] - x[0] * x[1]) / (12566 * pow(x[0], 3) * x[1] - pow(x[0], 4))) + (1 / (5108.0 * x[0] * x[0])) - 1)
+    return float(((4 * (x[1] * x[1]) - (x[0] * x[1])) / (12566 * pow(x[0], 3) * x[1] - pow(x[0], 4))) + (1 / (5108.0 * ([0] * x[0])))- 1)
 
 
 def MWTCScalculateG3(x):
-    return float(1 - 140.45 * x[0] / (x[2] * x[1] * x[1]))
+    return float(1 - ((140.45 * x[0]) / (x[2] * x[1] * x[1])))
 
 
 def MWTCScalculateG4(x):
-    return float((x[0] + x[1]) / 1.5 - 1)
+    return float(((x[0] - x[1]) / 1.5) - 1)
   
 
 
@@ -89,33 +89,30 @@ def WBDcalculateTauDois(pos):
 
 def WBDcalculateTauTres( pos, r, j):
     
-    M1 = float(14) + (pos[0]/2)
+    M1 =  6000 * (14 + (pos[1]/ 2));
     return (float(M1) * r) / j
     
 
 def WBDcalculateJ(pos):
-    
-    return (2.0 * (math.sqrt(2.0) * pos[0] * pos[1] * ((pow(pos[2],2.0) / 12) + (pow(((pos[0]+pos[2]) / 2), 2.0)))))
+    return (2.0 * (((pos[0] * pos[1])/(math.sqrt(2.0)) * ((pow(pos[1],2.0) / 12) + (pow(((pos[0]+pos[2]) / 2), 2.0))))))
     
 
 def WBDcalculateR(pos):
-    
-    return (math.sqrt((pow(pos[2],2.0) / 4.0) + pow(((pos[0]+pos[2]) / 2), 2.0)))
+    return (math.sqrt((pow(pos[1],2.0) / 4.0) + pow(((pos[0]+pos[2]) / 2), 2.0)))
     
 
 def WBDcalculateSigma( pos):
     
-    return (float) ((6.0 * 6000.0 * 14) / (pos[3] * pow(pos[2],2.0)))
+    return float ((6.0 * 6000.0 * 14) / (pos[3] * pow(pos[2],2.0)))
     
 
 def WBDcalculateDelta( pos):
-    
-    return (float) ((4.0 * 6000.0 * pow(14, 3)) / ((30 * pow(10,6)) * pos[3] * pow(pos[2], 3)))
+    return float((4.0 * 6000.0 * pow(14, 3)) / ((30 * pow(10,6)) * pos[3] * pow(pos[2], 3)))
     
 
 def WBDcalculatePC( pos):
     
-    return (float)(((4.013 * (30 * pow(10,6)) * math.sqrt((pos[2] * pos[2] * pow(pos[3], 6)) / 36)) / 196) * (1 - (pos[2] * math.sqrt((30 * pow(10,6)) / (4 * (12 * pow(10,6))))) / 28))
+    return float(((4.013 * (30 * pow(10,6)) * math.sqrt((pos[2] * pos[2] * pow(pos[3], 6)) / 36)) / 196) * (1 - (pos[2] * math.sqrt((30 * pow(10,6)) / (4 * (12 * pow(10,6))))) / 28))
 
 
 def WBDcalculateTauUm( pos):
@@ -126,7 +123,7 @@ def WBDcalculateTauUm( pos):
     t2 = WBDcalculateTauDois(pos)
     t3 = WBDcalculateTauTres(pos,r,j)
 
-    return  float(math.sqrt(pow(t2,2.0) + 2 * t2 * t3 * (1 / 2.0 * r) + pow(t3,2.0)))
+    return  float(math.sqrt(pow(t2,2.0) + (2 * t2 * t3 * (pos[1] / (2.0 * r))) + pow(t3,2.0)))
     
 
 def WBDcalculateG1(t1):
@@ -165,7 +162,7 @@ def WBDcalculateG7(pc):
 
 def WBDcalculateFitness(pos):
     
-    return float((1.10471 * pow(pos[0],2.0) * pos[1]) + (0.04811 *  pos[2] * pos[3] * (14.0 + pos[1])))
+    return (1.10471 * math.pow(pos[0], 2) * x2) + ((0.04811 * pos[2] * pos[3]) * (14.0 + pos[1]))
     
 
 def WBD(pos):
@@ -253,7 +250,7 @@ def DPVcalculateG2(pos):
 
 def DPVcalculateG3(pos):
 
-    return float (-(3.141592 * pow(pos[2], 2.0) * pos[3]) - ((4.0 / 3.0) * 3.141592 * pow(pos[2], 3.0)) + 1296000)
+    return float (-(3.141592 * pow(pos[2], 2.0) * pos[3]) - ((4.0 * 3.141592 * pow(pos[2], 3.0))/3) + 1296000)
 
 
 def DPVcalculateG4(pos):
@@ -263,7 +260,7 @@ def DPVcalculateG4(pos):
 
 def DPVcalculateFitness(pos):
 
-    return float (0.6224 * pos[0]* pos[2] * pos[3] + 1.7781 * pos[1]*pos[2] * pos[2] + 3.1661 * pos[0]* pos[0]* pos[3] + 19.84 * pos[0]* pos[0]* pos[2])
+    return float ((0.6224 * pos[0]* pos[2] * pos[3]) + (1.7781 * pos[1]* (pos[2] * pos[2])) + (3.1661 * (pos[0]* pos[0])* pos[3]) + (19.84 * (pos[0]* pos[0])* pos[2]))
 
 
 def DPV(pos):
@@ -301,7 +298,6 @@ def DPV(pos):
     
             
         violations+=1
-    
 
     fitness = DPVcalculateFitness(pos)
     
@@ -333,42 +329,42 @@ def SRDcalculateG4(pos):
 
 def SRDcalculateG5(pos):
 
-    return float ((1 / 110 * (pos[5] * pos[5] * pos[5])) * (math.sqrt((750.0 * pos[3] / pos[1] * pos[2]) * (750.0 * pos[3] / pos[1] * pos[2]) + 16900000)) - 1)
+    return float ((math.sqrt(Math.pow((745 * pos[3]) / (pos[1] * pos[2]), 2) + (1.69 * Math.pow(10, 6))) / (110 * Math.pow(pos[5], 3))) - 1)
    
 def SRDcalculateG6(pos):
 
-    return float (((math.sqrt((((745.0 * pos[4]) / (pos[1] * pos[2])) * ((745.0 * pos[4]) / (pos[1] * pos[2])) + 157.5 * 1000000))) / (85.0 * pos[6] * pos[6] * pos[6])) - 1)
+    return float ((Math.sqrt(Math.pow((745 * pos[4]) / (pos[1] * pos[2]), 2) + (157.5 * Math.pow(10, 6)))/ (85 * Math.pow(pos[6], 3))) - 1)
 
 
 def SRDcalculateG7(pos):
 
-    return float ((pos[1] * pos[2] / 40) - 1)
+    return float (((pos[1] * pos[2]) / 40) - 1)
 
 
 def SRDcalculateG8(pos):
 
-    return float ((5 * pos[1] / pos[0]) - 1)
+    return float ((5 * (pos[1] / pos[0])) - 1)
 
 
 def SRDcalculateG9(pos):
 
 
-    return float ((pos[0]/ 12 * pos[1]) - 1)
+    return float ((pos[0]/ (12 * pos[1])) - 1)
 
 
 def SRDcalculateG10(pos):
 
-    return float (((1.5 * pos[5] + 1.9) / pos[3]) - 1)
+    return float ((((1.5 * pos[5]) + 1.9) / pos[3]) - 1)
 
 
 def SRDcalculateG11(pos):
 
-    return float (((1.1 * pos[6] + 1.9) / pos[4]) - 1)
+    return float ((((1.1 * pos[6]) + 1.9) / pos[4]) - 1)
 
 
 def SRDcalculateFitness(pos):
  
-    return float (0.7854 * pos[0]* pos[1] * pos[1] * (3.3333 * pos[2] * pos[2] + 14.9334 * pos[2] - 43.0934)) - 1.508 * pos[0]* (pos[5] * pos[5] + pos[6] * pos[6]) + 7.4777 * (pos[5] * pos[5] * pos[5] + pos[6] * pos[6] * pos[6]) + 0.78054 * (pos[3] * pos[5] * pos[5] + pos[4] * pos[6] * pos[6])
+    return float (0.7854 * pos[0]* pos[1] * pos[1] * ((3.3333 * pos[2] * pos[2]) + (14.9334 * pos[2]) - 43.0934) - (1.508 * pos[0]* ((pos[5] * pos[5]) + (pos[6] * pos[6]))) + (7.4777 * ((pos[5] * pos[5] * pos[5]) + (pos[6] * pos[6] * pos[6]))) + (0.78054 * ((pos[3] * pos[5] * pos[5]) + (pos[4] * pos[6] * pos[6]))))
 
 
 def SRD11(pos):

@@ -236,7 +236,7 @@ class GA ():
 
             #print("\n\nUPDATES\n\n\n")
             self.update()
-
+            
 
         #print(g[len(g)-1].fitness, g[len(g)-1].genotype[0], g[len(g)-1].genotype[1])
             self.bests.append(copy.copy(self.findBest()))
