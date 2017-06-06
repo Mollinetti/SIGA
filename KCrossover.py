@@ -139,8 +139,6 @@ def Kcross(lowerBound, upperBound, dir, parent1=Gene, parent2=Gene,  param=Param
 
     child1.genotype = list(resultoffspring1)
     child2.genotype = list(resultoffspring2)
-    print("parent1: ", parent1.genotype, " parent2: ", parent2.genotype)
-    print("child1: ", child1.genotype, " child2: ", child2.genotype)
 
     return child1, child2
 

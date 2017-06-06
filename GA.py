@@ -4,8 +4,9 @@ Created on 01/07/2015
 @author: Mollinetti
 '''
 
-import Parameters, math, copy, random, Gene, KCrossover, Fitness, GameParam
+import Parameters, math, copy, random, Gene, KCrossover, Fitness, GameParam,os
 from operator import attrgetter
+
 
 class GA ():
     
@@ -247,7 +248,9 @@ class GA ():
 
         
         #write result File
-        self.writeResult("Out/"+ self.outname)
+        if not os.path.exists("Out/"+ self.param.funcName):
+            os.makedirs("Out/"+ self.param.funcName)
+        self.writeResult("Out/"+ self.param.funcName+"/"+self.outname)
 
         #return best 
         return self.bests[-1].fitness

@@ -25,7 +25,7 @@ def MWTCScalculateG1(x):
 
 
 def MWTCScalculateG2(x):
-    return float(((4 * (x[1] * x[1]) - (x[0] * x[1])) / (12566 * pow(x[0], 3) * x[1] - pow(x[0], 4))) + (1 / (5108.0 * ([0] * x[0])))- 1)
+    return float(((4.0 * (x[1] * x[1]) - (x[0] * x[1])) / (12566.0 * pow(x[0], 3.0) * x[1] - pow(x[0], 4.0))) + (1 / (5108.0 * (x[0] * x[0])))- 1.0)
 
 
 def MWTCScalculateG3(x):
@@ -162,7 +162,7 @@ def WBDcalculateG7(pc):
 
 def WBDcalculateFitness(pos):
     
-    return (1.10471 * math.pow(pos[0], 2) * x2) + ((0.04811 * pos[2] * pos[3]) * (14.0 + pos[1]))
+    return (1.10471 * math.pow(pos[0], 2) * pos[1]) + ((0.04811 * pos[2] * pos[3]) * (14.0 + pos[1]))
     
 
 def WBD(pos):

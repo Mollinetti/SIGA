@@ -18,7 +18,7 @@ if __name__ == "__main__":
             ga = GA.GA(str(i),p)
             
             best.append(ga.run())
-        f = open('Out/BESTS','w')
+        f = open('Out/'+p.funcName+'/BESTS','w')
         for i in range(0, int(len(best))):
             f.write("%12.10f"%(best[i])+ "\t")
             f.write("\n")
